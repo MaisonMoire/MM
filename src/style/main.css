@@ -1,0 +1,22 @@
+@import './fonts.css';
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+html{
+  font-size:10px; /* rem */
+}
+
+button{
+  font-size:inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+}
+
+.overlay{ @apply w-full h-full top-0 left-0 }
+
+.scrollbars-hidden::-webkit-scrollbar{ display: none; }
+
+.scroll-snap-y-proximity{ scroll-snap-type: y proximity; }
+.scroll-snap-y-mandatory{ scroll-snap-type: y mandatory; }
+.scroll-snap-start{ scroll-snap-align: start; }

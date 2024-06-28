@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'HaasGrotDisp';
+  src: url('/fonts/HaasGrotDisp-45Light.woff2') format('woff2'), url('/fonts/HaasGrotDisp-45Light.woff') format('woff');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SainteColombe-Light';
+  src: url('/fonts/SainteColombe-Light.woff2') format('woff2'), url('/fonts/SainteColombe-Light.woff') format('woff');
+  font-style: normal;
+}
