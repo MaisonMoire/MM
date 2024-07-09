@@ -66,53 +66,57 @@
 </template>
 
 <script>
-import BtnSort from '@/components/BtnSort'
-import svgX from '@/components/icons/SVG-X'
+import BtnSort from "@/components/BtnSort";
+import svgX from "@/components/icons/SVG-X";
 export default {
-  name: 'ClientDoc',
-  data () {
+  name: "ClientDoc",
+  data() {
     return {
-      doc: null
-    }
+      doc: null,
+    };
   },
   computed: {
-    assetsSorted () {
+    assetsSorted() {
       // pull key from sort route query ("date-desc")
-      const key = this.$route.query.sort?.split('-')[0]
-      if (!key) return this.doc.data.assets
+      const key = this.$route.query.sort?.split("-")[0];
+      if (!key) return this.doc.data.assets;
       // sort by key asc/desc
-      const assets = [...this.doc.data.assets]
-      const isDesc = this.$route.query.sort.includes('desc')
-      const val = asset => asset.primary[key]
-      assets.sort((a, b) => val(a) < val(b) ? -1 : val(a) > val(b) ? 1 : 0)
-      if (isDesc) assets.reverse()
-      return assets
-    }
+      const assets = [...this.doc.data.assets];
+      const isDesc = this.$route.query.sort.includes("desc");
+      const val = (asset) => asset.primary[key];
+      assets.sort((a, b) => (val(a) < val(b) ? -1 : val(a) > val(b) ? 1 : 0));
+      if (isDesc) assets.reverse();
+      return assets;
+    },
   },
   methods: {
-    close () {
-      sessionStorage.removeItem('client-doc')
-      this.$router.replace('/login')
+    close() {
+      sessionStorage.removeItem("client-doc");
+      this.$router.replace("/login");
     },
-    onRowClick (i) {
-      return this.$refs.row[i].querySelector('a')?.click()
+    onRowClick(i) {
+      return this.$refs.row[i].querySelector("a")?.click();
     },
-    formatDate (date) {
+    formatDate(date) {
       if (date) {
-        date = new Date(date) // .toLocaleString('en-GB')
-        const num = val => ('0' + val.toString()).slice(-2)
-        date = `${num(date.getDate())}.${num(date.getMonth() + 1)}.${num(date.getFullYear())}`
+        date = new Date(date); // .toLocaleString('en-GB')
+        const num = (val) => ("0" + val.toString()).slice(-2);
+        date = `${num(date.getDate())}.${num(date.getMonth() + 1)}.${num(
+          date.getFullYear()
+        )}`;
       }
-      return date
-    }
+      return date;
+    },
   },
-  created () {
-    this.doc = JSON.parse(sessionStorage.getItem('client-doc'))
-    if (!this.doc) return this.$router.replace('login')
+  created() {
+    this.doc = JSON.parse(sessionStorage.getItem("client-doc"));
+    if (!this.doc) return this.$router.replace("login");
   },
-  components: { BtnSort, svgX }
-}
+  mounted() {
+    document.body.style.overflow = "hidden";
+  },
+  components: { BtnSort, svgX },
+};
 </script>
 
-<style>
-</style>
+<style></style>
