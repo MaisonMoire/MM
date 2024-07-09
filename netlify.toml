@@ -1,5 +1,6 @@
 [build]
   functions = "./functions"
+  environment = { NODE_OPTIONS = "--openssl-legacy-provider" }
 
 [[redirects]]
   from = '/api/clients'
@@ -10,3 +11,4 @@
   from = "/*"
   to = "/index.html"
   status = 200
+  
