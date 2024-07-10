@@ -112,8 +112,8 @@ export default {
     this.doc = JSON.parse(sessionStorage.getItem("client-doc"));
     if (!this.doc) return this.$router.replace("login");
   },
-  mounted() {
-    document.body.style.overflow = "hidden";
+  async mounted() {
+    document.body.style.overflow = "";
   },
   components: { BtnSort, svgX },
 };
